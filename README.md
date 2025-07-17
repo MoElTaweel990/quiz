@@ -134,23 +134,41 @@
             border-color: #FFD700; /* Change border color on focus */
             box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
+        .quiz-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
         button {
             background-color: #E6007A; /* Cheerful button color */
             color: white;
-            padding: 15px 35px;
+            padding: 15px 25px;
             border: none;
             border-radius: 15px;
             cursor: pointer;
-            font-size: 1.5em; /* Large button font size */
-            margin-top: 30px;
+            font-size: 1.3em; /* Button font size */
             transition: background-color 0.3s ease, transform 0.2s;
             font-family: 'Boogaloo', cursive; /* Playful button font */
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between icon and text */
         }
         button:hover {
             background-color: #CC0066; /* Darker color on hover */
             transform: translateY(-3px); /* Slight lift on hover */
         }
+        #shareBtn {
+            background-color: #25D366; /* WhatsApp green for share button */
+            display: none; /* Hidden by default */
+        }
+        #shareBtn:hover {
+            background-color: #1DA851;
+        }
+
         #results {
             margin-top: 30px;
             font-size: 1.8em; /* Large results font size */
@@ -197,7 +215,10 @@
         <div class="cute-character"></div> <h1><i class="fas fa-magic"></i> The Fun English Quiz! <i class="fas fa-star"></i></h1>
         <div id="quiz">
             </div>
-        <button id="submitBtn"><i class="fas fa-paper-plane"></i> I'm Done! Show My Score</button>
+        <div class="quiz-buttons">
+            <button id="submitBtn"><i class="fas fa-paper-plane"></i> I'm Done! Show My Score</button>
+            <button id="shareBtn"><i class="fab fa-whatsapp"></i> Share Score on WhatsApp</button>
+        </div>
         <div id="results"></div>
         <div class="contact-link">
             <i class="fab fa-whatsapp"></i> Need help or have questions? Contact us on WhatsApp: <a href="https://wa.me/201117112423" target="_blank">Chat on WhatsApp</a>
@@ -303,9 +324,12 @@
 
         const quizDiv = document.getElementById('quiz');
         const submitButton = document.getElementById('submitBtn');
+        const shareButton = document.getElementById('shareBtn'); // Get the new share button
         const resultsDiv = document.getElementById('results');
         let score = 0;
+        let totalQuestions = questions.length;
         let answeredQuestions = 0;
+        let finalResultMessage = ""; // To store the final result message
 
         function renderQuestions() {
             quizDiv.innerHTML = ''; // Clear previous questions
@@ -412,10 +436,28 @@
                 }
             });
 
-            if (answeredQuestions === questions.length) {
-                resultsDiv.textContent = `You scored ${score} out of ${questions.length} questions! Awesome!`;
+            if (answeredQuestions === totalQuestions) {
+                finalResultMessage = `I just took the Fun English Quiz and scored ${score} out of ${totalQuestions} questions! Awesome! 🎉`;
+                resultsDiv.textContent = `You scored ${score} out of ${totalQuestions} questions! Awesome!`;
+                shareButton.style.display = 'flex'; // Show the share button
             } else {
-                resultsDiv.textContent = `Please answer all questions to see your final score. You have answered ${answeredQuestions} out of ${questions.length} questions so far.`;
+                finalResultMessage = ""; // Clear message if not all questions answered
+                resultsDiv.textContent = `Please answer all questions to see your final score. You have answered ${answeredQuestions} out of ${totalQuestions} questions so far.`;
+                shareButton.style.display = 'none'; // Hide the share button
+            }
+        });
+
+        // Event listener for the new share button
+        shareButton.addEventListener('click', () => {
+            if (finalResultMessage) {
+                // Encode the message for URL
+                const encodedMessage = encodeURIComponent(finalResultMessage);
+                // Construct the WhatsApp URL
+                const whatsappUrl = `https://wa.me/201117112423?text=${encodedMessage}`;
+                // Open WhatsApp
+                window.open(whatsappUrl, '_blank');
+            } else {
+                alert('Please complete the quiz first to share your score!');
             }
         });
 
