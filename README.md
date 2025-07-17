@@ -66,6 +66,36 @@
             font-size: 3em; /* Large title size */
             text-shadow: 2px 2px #FFD700; /* Shadow for the title */
         }
+        .player-name-section {
+            margin-bottom: 30px;
+            background-color: #ffe6f2; /* Light pink background */
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 2px solid #FFC0CB; /* Pink border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .player-name-section label {
+            font-size: 1.3em;
+            color: #E6007A;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+        .player-name-section input[type="text"] {
+            width: calc(100% - 20px); /* Adjust width for padding */
+            padding: 10px;
+            border: 2px solid #FFC0CB;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-family: 'Kalam', cursive;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .player-name-section input[type="text"]:focus {
+            border-color: #E6007A;
+            box-shadow: 0 0 8px rgba(230, 0, 122, 0.3);
+        }
+
         .question {
             margin-bottom: 25px;
             text-align: left;
@@ -213,6 +243,12 @@
 <body>
     <div class="quiz-container">
         <div class="cute-character"></div> <h1><i class="fas fa-magic"></i> The Fun English Quiz! <i class="fas fa-star"></i></h1>
+
+        <div class="player-name-section">
+            <label for="playerName"><i class="fas fa-user-tag"></i> Enter Your Name:</label>
+            <input type="text" id="playerName" placeholder="e.g., Sara or Ahmed" maxlength="30">
+        </div>
+
         <div id="quiz">
             </div>
         <div class="quiz-buttons">
@@ -233,13 +269,15 @@
                 question: "What is the opposite of 'big'?",
                 options: ["small", "tall", "fast", "happy"],
                 answer: "small",
-                icon: "fas fa-child" /* Icon for the question */
+                answerMeaning: "صغير", // Arabic meaning for the answer
+                icon: "fas fa-child"
             },
             {
                 type: "fill-in-blank",
                 level: "child",
                 question: "The sky is ____ (color).",
                 answer: "blue",
+                answerMeaning: "أزرق",
                 icon: "fas fa-cloud"
             },
             {
@@ -247,6 +285,7 @@
                 level: "child",
                 question: "A cat says 'woof'.",
                 answer: "false",
+                answerMeaning: "خطأ",
                 icon: "fas fa-cat"
             },
             {
@@ -260,6 +299,7 @@
                     "She going to the store yesterday."
                 ],
                 answer: "She went to the store yesterday.",
+                answerMeaning: "هي ذهبت إلى المتجر أمس.",
                 icon: "fas fa-brain"
             },
             {
@@ -267,6 +307,7 @@
                 level: "adult",
                 question: "The passive voice is formed with a form of 'to be' and the past ____ of the main verb.",
                 answer: "participle",
+                answerMeaning: "اسم المفعول",
                 icon: "fas fa-pencil-alt"
             },
             {
@@ -274,6 +315,7 @@
                 level: "adult",
                 question: "'Affect' is typically a verb, while 'effect' is typically a noun.",
                 answer: "true",
+                answerMeaning: "صحيح",
                 icon: "fas fa-lightbulb"
             },
             {
@@ -282,6 +324,7 @@
                 question: "How many legs does a dog have?",
                 options: ["two", "four", "six", "eight"],
                 answer: "four",
+                answerMeaning: "أربعة",
                 icon: "fas fa-dog"
             },
             {
@@ -289,6 +332,7 @@
                 level: "child",
                 question: "I like to eat ____ (fruit, red and round).",
                 answer: "apple",
+                answerMeaning: "تفاح",
                 icon: "fas fa-apple-alt"
             },
             {
@@ -296,6 +340,7 @@
                 level: "child",
                 question: "Birds can fly.",
                 answer: "true",
+                answerMeaning: "صحيح",
                 icon: "fas fa-dove"
             },
             {
@@ -304,6 +349,7 @@
                 question: "Which of these is a synonym for 'ubiquitous'?",
                 options: ["rare", "common", "unique", "scarce"],
                 answer: "common",
+                answerMeaning: "شائع / منتشر",
                 icon: "fas fa-language"
             },
             {
@@ -311,6 +357,7 @@
                 level: "adult",
                 question: "The idiom 'break a ____' means good luck.",
                 answer: "leg",
+                answerMeaning: "ساق (تعبير اصطلاحي يعني حظاً سعيداً)",
                 icon: "fas fa-book"
             },
             {
@@ -318,11 +365,13 @@
                 level: "adult",
                 question: "The word 'literally' can sometimes be used figuratively in informal speech.",
                 answer: "true",
+                answerMeaning: "صحيح (كلمة 'حرفياً' يمكن استخدامها مجازياً)",
                 icon: "fas fa-quote-right"
             }
         ];
 
         const quizDiv = document.getElementById('quiz');
+        const playerNameInput = document.getElementById('playerName'); // Get player name input
         const submitButton = document.getElementById('submitBtn');
         const shareButton = document.getElementById('shareBtn');
         const resultsDiv = document.getElementById('results');
@@ -386,7 +435,7 @@
             let isCorrect = false;
 
             if (question.type === "multiple-choice" || question.type === "true-false") {
-                isCorrect = (userAnswer === question.answer);
+                isCorrect = (userAnswer.toLowerCase().trim() === question.answer.toLowerCase().trim()); // Use toLowerCase for case-insensitive
             } else if (question.type === "fill-in-blank") {
                 isCorrect = (userAnswer.toLowerCase().trim() === question.answer.toLowerCase().trim());
             }
@@ -409,6 +458,14 @@
             answeredQuestions = 0;
             userAnswers = []; // Clear previous answers
             
+            const playerName = playerNameInput.value.trim(); // Get player name
+
+            if (playerName === "") {
+                alert("Please enter your name to start the quiz!");
+                playerNameInput.focus(); // Focus on the name input
+                return; // Stop the function if name is empty
+            }
+
             questions.forEach((q, index) => {
                 let userAnswer = '';
                 if (q.type === "multiple-choice" || q.type === "true-false") {
@@ -425,25 +482,31 @@
                     }
                 }
 
-                // Store the user's answer, even if it's empty
+                const isCorrect = checkAnswer(q, userAnswer, index); // Check and update feedback
+
+                // Determine the correct answer for the WhatsApp message
+                let correctDisplayAnswer = q.answer;
+                if (q.answerMeaning) {
+                    correctDisplayAnswer = `${q.answer} (${q.answerMeaning})`;
+                }
+
                 userAnswers.push({
                     questionText: q.question,
-                    chosenAnswer: userAnswer || "Not Answered", // Store "Not Answered" if blank
-                    isCorrect: checkAnswer(q, userAnswer, index) // Check and update feedback
+                    chosenAnswer: userAnswer || "Not Answered",
+                    correctAnswer: correctDisplayAnswer, // Include meaning
+                    isCorrect: isCorrect
                 });
-
-                // The checkAnswer function already updates feedback, so no need for 'if (userAnswer)' here
             });
 
             if (answeredQuestions === totalQuestions) {
                 let answersDetail = "";
                 userAnswers.forEach((item, index) => {
-                    const status = item.isCorrect ? "Correct ✅" : "Incorrect ❌";
-                    answersDetail += `\nQ${index + 1}: ${item.questionText}\nYour Answer: ${item.chosenAnswer} (${status})\n`;
+                    const status = item.isCorrect ? "Correct ✅" : `Incorrect ❌ (Correct: ${item.correctAnswer})`;
+                    answersDetail += `\nQ${index + 1}: ${item.questionText}\nYour Answer: ${item.chosenAnswer}\nStatus: ${status}\n`;
                 });
 
-                finalResultMessage = `I just took the Fun English Quiz and scored ${score} out of ${totalQuestions} questions! Awesome! 🎉\n\nMy Answers:\n${answersDetail}`;
-                resultsDiv.textContent = `You scored ${score} out of ${totalQuestions} questions! Awesome!`;
+                finalResultMessage = `Hello! I'm *${playerName}*. I just took the Fun English Quiz and scored *${score} out of ${totalQuestions}* questions! Awesome! 🎉\n\nHere are my answers:\n${answersDetail}\n\n`; // Add player name
+                resultsDiv.textContent = `Great job, ${playerName}! You scored ${score} out of ${totalQuestions} questions! Awesome!`;
                 shareButton.style.display = 'flex'; // Show the share button
             } else {
                 finalResultMessage = ""; // Clear message if not all questions answered
