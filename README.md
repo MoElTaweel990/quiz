@@ -263,13 +263,14 @@
 
     <script>
         const questions = [
+            // General Questions (Adult/Child)
             {
                 type: "multiple-choice",
                 level: "child",
                 question: "What is the opposite of 'big'?",
                 options: ["small", "tall", "fast", "happy"],
                 answer: "small",
-                answerMeaning: "صغير", // Arabic meaning for the answer
+                answerMeaning: "صغير",
                 icon: "fas fa-child"
             },
             {
@@ -318,60 +319,619 @@
                 answerMeaning: "صحيح",
                 icon: "fas fa-lightbulb"
             },
-            {
-                type: "multiple-choice",
-                level: "child",
-                question: "How many legs does a dog have?",
-                options: ["two", "four", "six", "eight"],
-                answer: "four",
-                answerMeaning: "أربعة",
-                icon: "fas fa-dog"
-            },
+            // Questions on English Letters A-Z
+            // Letter A
             {
                 type: "fill-in-blank",
                 level: "child",
-                question: "I like to eat ____ (fruit, red and round).",
-                answer: "apple",
+                question: "What is the first letter of the English alphabet?",
+                answer: "A",
+                answerMeaning: "الحرف الأول",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'A'?",
+                options: ["Banana", "Apple", "Car", "Dog"],
+                answer: "Apple",
                 answerMeaning: "تفاح",
                 icon: "fas fa-apple-alt"
             },
+            // Letter B
             {
-                type: "true-false",
+                type: "fill-in-blank",
                 level: "child",
-                question: "Birds can fly.",
-                answer: "true",
-                answerMeaning: "صحيح",
-                icon: "fas fa-dove"
+                question: "What letter comes after 'A'?",
+                answer: "B",
+                answerMeaning: "الحرف الذي يلي A",
+                icon: "fas fa-font"
             },
             {
                 type: "multiple-choice",
+                level: "child",
+                question: "Which animal starts with 'B'?",
+                options: ["Cat", "Bird", "Fish", "Lion"],
+                answer: "Bird",
+                answerMeaning: "طائر",
+                icon: "fas fa-dove"
+            },
+            // Letter C
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'B'?",
+                answer: "C",
+                answerMeaning: "الحرف الذي يلي B",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'C'?",
+                options: ["House", "Chair", "Table", "Bed"],
+                answer: "Chair",
+                answerMeaning: "كرسي",
+                icon: "fas fa-chair"
+            },
+            // Letter D
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'C'?",
+                answer: "D",
+                answerMeaning: "الحرف الذي يلي C",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which animal starts with 'D'?",
+                options: ["Elephant", "Fox", "Dog", "Goat"],
+                answer: "Dog",
+                answerMeaning: "كلب",
+                icon: "fas fa-dog"
+            },
+            // Letter E
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'D'?",
+                answer: "E",
+                answerMeaning: "الحرف الذي يلي D",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'E'?",
+                options: ["Ant", "Egg", "Fish", "Grape"],
+                answer: "Egg",
+                answerMeaning: "بيضة",
+                icon: "fas fa-egg"
+            },
+            // Letter F
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'E'?",
+                answer: "F",
+                answerMeaning: "الحرف الذي يلي E",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'F'?",
+                options: ["Hand", "Foot", "Nose", "Ear"],
+                answer: "Foot",
+                answerMeaning: "قدم",
+                icon: "fas fa-shoe-prints"
+            },
+            // Letter G
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'F'?",
+                answer: "G",
+                answerMeaning: "الحرف الذي يلي F",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'G'?",
+                options: ["Door", "Glass", "Window", "Wall"],
+                answer: "Glass",
+                answerMeaning: "كوب / زجاج",
+                icon: "fas fa-wine-glass"
+            },
+            // Letter H
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'G'?",
+                answer: "H",
+                answerMeaning: "الحرف الذي يلي G",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'H'?",
+                options: ["Tree", "House", "Flower", "Grass"],
+                answer: "House",
+                answerMeaning: "منزل",
+                icon: "fas fa-home"
+            },
+            // Letter I
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'H'?",
+                answer: "I",
+                answerMeaning: "الحرف الذي يلي H",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'I'?",
+                options: ["Orange", "Ink", "Book", "Pencil"],
+                answer: "Ink",
+                answerMeaning: "حبر",
+                icon: "fas fa-pen-nib"
+            },
+            // Letter J
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'I'?",
+                answer: "J",
+                answerMeaning: "الحرف الذي يلي I",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'J'?",
+                options: ["Key", "Lock", "Jam", "Door"],
+                answer: "Jam",
+                answerMeaning: "مربى",
+                icon: "fas fa-bread-slice"
+            },
+            // Letter K
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'J'?",
+                answer: "K",
+                answerMeaning: "الحرف الذي يلي J",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'K'?",
+                options: ["Spoon", "Fork", "Knife", "Plate"],
+                answer: "Knife",
+                answerMeaning: "سكين",
+                icon: "fas fa-utensils"
+            },
+            // Letter L
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'K'?",
+                answer: "L",
+                answerMeaning: "الحرف الذي يلي K",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which animal starts with 'L'?",
+                options: ["Tiger", "Bear", "Lion", "Wolf"],
+                answer: "Lion",
+                answerMeaning: "أسد",
+                icon: "fas fa-lion"
+            },
+            // Letter M
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'L'?",
+                answer: "M",
+                answerMeaning: "الحرف الذي يلي L",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'M'?",
+                options: ["Sun", "Moon", "Star", "Cloud"],
+                answer: "Moon",
+                answerMeaning: "قمر",
+                icon: "fas fa-moon"
+            },
+            // Letter N
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'M'?",
+                answer: "N",
+                answerMeaning: "الحرف الذي يلي M",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'N'?",
+                options: ["Day", "Night", "Morning", "Evening"],
+                answer: "Night",
+                answerMeaning: "ليل",
+                icon: "fas fa-cloud-moon"
+            },
+            // Letter O
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'N'?",
+                answer: "O",
+                answerMeaning: "الحرف الذي يلي N",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which fruit starts with 'O'?",
+                options: ["Apple", "Banana", "Orange", "Grape"],
+                answer: "Orange",
+                answerMeaning: "برتقال",
+                icon: "fas fa-orange"
+            },
+            // Letter P
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'O'?",
+                answer: "P",
+                answerMeaning: "الحرف الذي يلي O",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'P'?",
+                options: ["Book", "Paper", "Pen", "Eraser"],
+                answer: "Pen",
+                answerMeaning: "قلم",
+                icon: "fas fa-pen"
+            },
+            // Letter Q
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'P'?",
+                answer: "Q",
+                answerMeaning: "الحرف الذي يلي P",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'Q'?",
+                options: ["King", "Queen", "Prince", "Princess"],
+                answer: "Queen",
+                answerMeaning: "ملكة",
+                icon: "fas fa-crown"
+            },
+            // Letter R
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'Q'?",
+                answer: "R",
+                answerMeaning: "الحرف الذي يلي Q",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which color starts with 'R'?",
+                options: ["Blue", "Green", "Yellow", "Red"],
+                answer: "Red",
+                answerMeaning: "أحمر",
+                icon: "fas fa-palette"
+            },
+            // Letter S
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'R'?",
+                answer: "S",
+                answerMeaning: "الحرف الذي يلي R",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'S'?",
+                options: ["Cloud", "Rain", "Snow", "Sun"],
+                answer: "Sun",
+                answerMeaning: "شمس",
+                icon: "fas fa-sun"
+            },
+            // Letter T
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'S'?",
+                answer: "T",
+                answerMeaning: "الحرف الذي يلي S",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'T'?",
+                options: ["Chair", "Table", "Sofa", "Bed"],
+                answer: "Table",
+                answerMeaning: "طاولة",
+                icon: "fas fa-table"
+            },
+            // Letter U
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'T'?",
+                answer: "U",
+                answerMeaning: "الحرف الذي يلي T",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'U'?",
+                options: ["Car", "Bus", "Umbrella", "Train"],
+                answer: "Umbrella",
+                answerMeaning: "مظلة",
+                icon: "fas fa-umbrella"
+            },
+            // Letter V
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'U'?",
+                answer: "V",
+                answerMeaning: "الحرف الذي يلي U",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'V'?",
+                options: ["Guitar", "Piano", "Violin", "Drum"],
+                answer: "Violin",
+                answerMeaning: "كمان",
+                icon: "fas fa-violin"
+            },
+            // Letter W
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'V'?",
+                answer: "W",
+                answerMeaning: "الحرف الذي يلي V",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'W'?",
+                options: ["Door", "Window", "Wall", "Roof"],
+                answer: "Window",
+                answerMeaning: "نافذة",
+                icon: "fas fa-window-maximize"
+            },
+            // Letter X
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'W'?",
+                answer: "X",
+                answerMeaning: "الحرف الذي يلي W",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'X'?",
+                options: ["Yoyo", "Xylophone", "Zebra", "Tiger"],
+                answer: "Xylophone",
+                answerMeaning: "إكسيليفون",
+                icon: "fas fa-music"
+            },
+            // Letter Y
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What letter comes after 'X'?",
+                answer: "Y",
+                answerMeaning: "الحرف الذي يلي X",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which word starts with 'Y'?",
+                options: ["Red", "Yellow", "Blue", "Green"],
+                answer: "Yellow",
+                answerMeaning: "أصفر",
+                icon: "fas fa-palette"
+            },
+            // Letter Z
+            {
+                type: "fill-in-blank",
+                level: "child",
+                question: "What is the last letter of the English alphabet?",
+                answer: "Z",
+                answerMeaning: "الحرف الأخير",
+                icon: "fas fa-font"
+            },
+            {
+                type: "multiple-choice",
+                level: "child",
+                question: "Which animal starts with 'Z'?",
+                options: ["Lion", "Tiger", "Zebra", "Bear"],
+                answer: "Zebra",
+                answerMeaning: "حمار وحشي",
+                icon: "fas fa-horse"
+            },
+            // New Questions: It is / He is
+            {
+                type: "multiple-choice",
                 level: "adult",
-                question: "Which of these is a synonym for 'ubiquitous'?",
-                options: ["rare", "common", "unique", "scarce"],
-                answer: "common",
-                answerMeaning: "شائع / منتشر",
-                icon: "fas fa-language"
+                question: "Choose the correct form: ____ a sunny day.",
+                options: ["He is", "It is", "They are", "She is"],
+                answer: "It is",
+                answerMeaning: "إنه (يوم مشمس - لغير العاقل)",
+                icon: "fas fa-sun"
             },
             {
                 type: "fill-in-blank",
                 level: "adult",
-                question: "The idiom 'break a ____' means good luck.",
-                answer: "leg",
-                answerMeaning: "ساق (تعبير اصطلاحي يعني حظاً سعيداً)",
-                icon: "fas fa-book"
+                question: "My brother is a doctor. ____ very busy.",
+                answer: "He is",
+                answerMeaning: "هو (جداً مشغول - للعاقل المذكر)",
+                icon: "fas fa-user-md"
             },
             {
                 type: "true-false",
                 level: "adult",
-                question: "The word 'literally' can sometimes be used figuratively in informal speech.",
+                question: "'It is raining' refers to the weather.",
                 answer: "true",
-                answerMeaning: "صحيح (كلمة 'حرفياً' يمكن استخدامها مجازياً)",
-                icon: "fas fa-quote-right"
+                answerMeaning: "صحيح (تصف الطقس)",
+                icon: "fas fa-cloud-showers-heavy"
+            },
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "____ a good idea to study every day.",
+                options: ["He is", "It is", "She is", "We are"],
+                answer: "It is",
+                answerMeaning: "إنه (فكرة جيدة - لغير العاقل/موقف)",
+                icon: "fas fa-lightbulb"
+            },
+            // New Questions: Do / Did / Does
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "____ you like coffee?",
+                options: ["Does", "Did", "Do", "Is"],
+                answer: "Do",
+                answerMeaning: "هل (فعل مساعد للمضارع مع You)",
+                icon: "fas fa-question-circle"
+            },
+            {
+                type: "fill-in-blank",
+                level: "adult",
+                question: "She ____ not speak French.",
+                answer: "does",
+                answerMeaning: "لا (فعل مساعد للنفي في المضارع مع She)",
+                icon: "fas fa-language"
+            },
+            {
+                type: "true-false",
+                level: "adult",
+                question: "'Did he go to the party yesterday?' uses the past tense.",
+                answer: "true",
+                answerMeaning: "صحيح (يستخدم زمن الماضي)",
+                icon: "fas fa-calendar-alt"
+            },
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "What ____ you ____ last night?",
+                options: ["do / do", "did / do", "does / do", "do / did"],
+                answer: "did / do",
+                answerMeaning: "ماذا فعلت (فعل مساعد للماضي مع الفعل الأصلي)",
+                icon: "fas fa-question-circle"
+            },
+            // New Questions: Have / Has / Had
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "I ____ a new car.",
+                options: ["has", "have", "had", "is"],
+                answer: "have",
+                answerMeaning: "أمتلك (للمضارع مع I)",
+                icon: "fas fa-car"
+            },
+            {
+                type: "fill-in-blank",
+                level: "adult",
+                question: "He ____ two sisters.",
+                answer: "has",
+                answerMeaning: "يمتلك (للمضارع مع He)",
+                icon: "fas fa-users"
+            },
+            {
+                type: "true-false",
+                level: "adult",
+                question: "They had a great time at the beach last summer.",
+                answer: "true",
+                answerMeaning: "صحيح (يمتلكون وقتاً رائعاً في الماضي)",
+                icon: "fas fa-umbrella-beach"
+            },
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "We ____ finished our homework.",
+                options: ["has", "had", "have", "is"],
+                answer: "have",
+                answerMeaning: "قد انتهينا (للمضارع التام مع We)",
+                icon: "fas fa-book-open"
+            },
+            // New Questions: Verb to be (am, is, are, was, were)
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "She ____ happy yesterday.",
+                options: ["is", "am", "were", "was"],
+                answer: "was",
+                answerMeaning: "كانت (في الماضي للمفرد)",
+                icon: "fas fa-history"
+            },
+            {
+                type: "fill-in-blank",
+                level: "adult",
+                question: "They ____ students.",
+                answer: "are",
+                answerMeaning: "يكونون (للمضارع للجمع)",
+                icon: "fas fa-user-graduate"
+            },
+            {
+                type: "true-false",
+                level: "adult",
+                question: "I am a teacher. This sentence uses 'to be' in the present tense.",
+                answer: "true",
+                answerMeaning: "صحيح (يستخدم 'to be' في المضارع)",
+                icon: "fas fa-chalkboard-teacher"
+            },
+            {
+                type: "multiple-choice",
+                level: "adult",
+                question: "Where ____ you born?",
+                options: ["was", "is", "were", "are"],
+                answer: "were",
+                answerMeaning: "كنت (في الماضي مع You)",
+                icon: "fas fa-map-marker-alt"
             }
         ];
 
         const quizDiv = document.getElementById('quiz');
-        const playerNameInput = document.getElementById('playerName'); // Get player name input
+        const playerNameInput = document.getElementById('playerName');
         const submitButton = document.getElementById('submitBtn');
         const shareButton = document.getElementById('shareBtn');
         const resultsDiv = document.getElementById('results');
@@ -379,10 +939,10 @@
         let totalQuestions = questions.length;
         let answeredQuestions = 0;
         let finalResultMessage = "";
-        let userAnswers = []; // Array to store user's answers
+        let userAnswers = [];
 
         function renderQuestions() {
-            quizDiv.innerHTML = ''; // Clear previous questions
+            quizDiv.innerHTML = '';
             questions.forEach((q, index) => {
                 const questionElement = document.createElement('div');
                 questionElement.classList.add('question');
@@ -435,7 +995,7 @@
             let isCorrect = false;
 
             if (question.type === "multiple-choice" || question.type === "true-false") {
-                isCorrect = (userAnswer.toLowerCase().trim() === question.answer.toLowerCase().trim()); // Use toLowerCase for case-insensitive
+                isCorrect = (userAnswer.toLowerCase().trim() === question.answer.toLowerCase().trim());
             } else if (question.type === "fill-in-blank") {
                 isCorrect = (userAnswer.toLowerCase().trim() === question.answer.toLowerCase().trim());
             }
@@ -456,14 +1016,14 @@
         submitButton.addEventListener('click', () => {
             score = 0;
             answeredQuestions = 0;
-            userAnswers = []; // Clear previous answers
+            userAnswers = [];
             
-            const playerName = playerNameInput.value.trim(); // Get player name
+            const playerName = playerNameInput.value.trim();
 
             if (playerName === "") {
                 alert("Please enter your name to start the quiz!");
-                playerNameInput.focus(); // Focus on the name input
-                return; // Stop the function if name is empty
+                playerNameInput.focus();
+                return;
             }
 
             questions.forEach((q, index) => {
@@ -482,9 +1042,8 @@
                     }
                 }
 
-                const isCorrect = checkAnswer(q, userAnswer, index); // Check and update feedback
+                const isCorrect = checkAnswer(q, userAnswer, index);
 
-                // Determine the correct answer for the WhatsApp message
                 let correctDisplayAnswer = q.answer;
                 if (q.answerMeaning) {
                     correctDisplayAnswer = `${q.answer} (${q.answerMeaning})`;
@@ -493,7 +1052,7 @@
                 userAnswers.push({
                     questionText: q.question,
                     chosenAnswer: userAnswer || "Not Answered",
-                    correctAnswer: correctDisplayAnswer, // Include meaning
+                    correctAnswer: correctDisplayAnswer,
                     isCorrect: isCorrect
                 });
             });
@@ -505,24 +1064,20 @@
                     answersDetail += `\nQ${index + 1}: ${item.questionText}\nYour Answer: ${item.chosenAnswer}\nStatus: ${status}\n`;
                 });
 
-                finalResultMessage = `Hello! I'm *${playerName}*. I just took the Fun English Quiz and scored *${score} out of ${totalQuestions}* questions! Awesome! 🎉\n\nHere are my answers:\n${answersDetail}\n\n`; // Add player name
+                finalResultMessage = `Hello! I'm *${playerName}*. I just took the Fun English Quiz and scored *${score} out of ${totalQuestions}* questions! Awesome! 🎉\n\nHere are my answers:\n${answersDetail}\n\n*Final Score: ${score}/${totalQuestions}*`;
                 resultsDiv.textContent = `Great job, ${playerName}! You scored ${score} out of ${totalQuestions} questions! Awesome!`;
-                shareButton.style.display = 'flex'; // Show the share button
+                shareButton.style.display = 'flex';
             } else {
-                finalResultMessage = ""; // Clear message if not all questions answered
+                finalResultMessage = "";
                 resultsDiv.textContent = `Please answer all questions to see your final score. You have answered ${answeredQuestions} out of ${totalQuestions} questions so far.`;
-                shareButton.style.display = 'none'; // Hide the share button
+                shareButton.style.display = 'none';
             }
         });
 
-        // Event listener for the new share button
         shareButton.addEventListener('click', () => {
             if (finalResultMessage) {
-                // Encode the message for URL
                 const encodedMessage = encodeURIComponent(finalResultMessage);
-                // Construct the WhatsApp URL
                 const whatsappUrl = `https://wa.me/201117112423?text=${encodedMessage}`;
-                // Open WhatsApp
                 window.open(whatsappUrl, '_blank');
             } else {
                 alert('Please complete the quiz first to share your score!');
