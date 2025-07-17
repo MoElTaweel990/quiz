@@ -324,12 +324,13 @@
 
         const quizDiv = document.getElementById('quiz');
         const submitButton = document.getElementById('submitBtn');
-        const shareButton = document.getElementById('shareBtn'); // Get the new share button
+        const shareButton = document.getElementById('shareBtn');
         const resultsDiv = document.getElementById('results');
         let score = 0;
         let totalQuestions = questions.length;
         let answeredQuestions = 0;
-        let finalResultMessage = ""; // To store the final result message
+        let finalResultMessage = "";
+        let userAnswers = []; // Array to store user's answers
 
         function renderQuestions() {
             quizDiv.innerHTML = ''; // Clear previous questions
@@ -337,7 +338,6 @@
                 const questionElement = document.createElement('div');
                 questionElement.classList.add('question');
                 
-                // Add icon to the question
                 const questionText = `<p><i class="${q.icon}"></i> ${index + 1}. ${q.question} <span style="font-size:0.8em; color:#888;">(${q.level === 'child' ? 'For Kids' : 'For Adults'})</span></p>`;
                 questionElement.innerHTML = questionText;
 
@@ -407,6 +407,8 @@
         submitButton.addEventListener('click', () => {
             score = 0;
             answeredQuestions = 0;
+            userAnswers = []; // Clear previous answers
+            
             questions.forEach((q, index) => {
                 let userAnswer = '';
                 if (q.type === "multiple-choice" || q.type === "true-false") {
@@ -423,21 +425,24 @@
                     }
                 }
 
-                // Only provide feedback if the user attempted to answer the question
-                if (userAnswer) {
-                    if (checkAnswer(q, userAnswer, index)) {
-                        score++;
-                    }
-                } else {
-                     // Clear any previous feedback if the question wasn't answered
-                    const feedbackElement = document.getElementById(`feedback-${index}`);
-                    feedbackElement.textContent = "Please answer this question.";
-                    feedbackElement.classList.remove('correct', 'incorrect');
-                }
+                // Store the user's answer, even if it's empty
+                userAnswers.push({
+                    questionText: q.question,
+                    chosenAnswer: userAnswer || "Not Answered", // Store "Not Answered" if blank
+                    isCorrect: checkAnswer(q, userAnswer, index) // Check and update feedback
+                });
+
+                // The checkAnswer function already updates feedback, so no need for 'if (userAnswer)' here
             });
 
             if (answeredQuestions === totalQuestions) {
-                finalResultMessage = `I just took the Fun English Quiz and scored ${score} out of ${totalQuestions} questions! Awesome! 🎉`;
+                let answersDetail = "";
+                userAnswers.forEach((item, index) => {
+                    const status = item.isCorrect ? "Correct ✅" : "Incorrect ❌";
+                    answersDetail += `\nQ${index + 1}: ${item.questionText}\nYour Answer: ${item.chosenAnswer} (${status})\n`;
+                });
+
+                finalResultMessage = `I just took the Fun English Quiz and scored ${score} out of ${totalQuestions} questions! Awesome! 🎉\n\nMy Answers:\n${answersDetail}`;
                 resultsDiv.textContent = `You scored ${score} out of ${totalQuestions} questions! Awesome!`;
                 shareButton.style.display = 'flex'; // Show the share button
             } else {
